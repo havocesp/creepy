@@ -47,16 +47,14 @@ class ProjectTreeModel(QAbstractItemModel):
     def index(self, row, column, parent):
         parentNode = self.getNode(parent)
             
-        childItem = parentNode.child(row)
-        if childItem:
+        if childItem := parentNode.child(row):
             return self.createIndex(row, column, childItem)
         else:
             return QModelIndex()
     
     def parent(self, index):
         node = self.getNode(index)
-        parentNode = node.parent()
-        if parentNode:
+        if parentNode := node.parent():
             if parentNode == self._rootNode:
                 return QModelIndex()
             return self.createIndex(parentNode.row(), 0, parentNode)

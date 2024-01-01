@@ -55,6 +55,5 @@ class PluginsConfigurationDialog(QDialog):
                         
                     config_options['string_options'] = string_options
                     config_options['boolean_options'] = boolean_options
-                    plugin = self.PluginManager.getPluginByName(plugin_name, 'Input')
-                    if plugin:
+                    if plugin := self.PluginManager.getPluginByName(plugin_name, 'Input'):
                         plugin.plugin_object.saveConfiguration(config_options)

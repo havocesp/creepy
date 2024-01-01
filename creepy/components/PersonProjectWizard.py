@@ -140,8 +140,7 @@ class PersonProjectWizard(QWizard):
             '''
             Load the String options first
             '''
-            pluginStringOptions = plugin.plugin_object.readConfiguration('search_string_options')[1]
-            if pluginStringOptions:
+            if pluginStringOptions := plugin.plugin_object.readConfiguration('search_string_options')[1]:
                 for idx, item in enumerate(pluginStringOptions.keys()):
                     itemLabel = plugin.plugin_object.getLabelForKey(item)
                     label = QLabel()
@@ -156,8 +155,7 @@ class PersonProjectWizard(QWizard):
             '''
             Load the boolean options 
             '''
-            pluginBooleanOptions = plugin.plugin_object.readConfiguration('search_boolean_options')[1]
-            if pluginBooleanOptions:
+            if pluginBooleanOptions := plugin.plugin_object.readConfiguration('search_boolean_options')[1]:
                 for idx, item in enumerate(pluginBooleanOptions.keys()):
                     itemLabel = plugin.plugin_object.getLabelForKey(item)
                     cb = QCheckBox(itemLabel)
